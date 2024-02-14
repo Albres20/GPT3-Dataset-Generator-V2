@@ -1,34 +1,52 @@
-# 🤖 GPT3 Dataset Generator
+# Análisis de Sentimiento de Reddit
 
-## About the app
+Esta aplicación permite analizar el sentimiento de publicaciones en Reddit basado en una palabra clave de búsqueda.
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://gpt3-dataset-generator.streamlit.app/)
+## Características
 
-This app generates datasets using GPT3. It was developped by [Charly Wargnier](https://twitter.com/DataChaz) and [Tony Kipkemboi](https://twitter.com/_townee), as part of the ❄️ [Snowflake](https://www.snowflake.com/en/) Snowvation Hackathon.
+- Búsqueda de publicaciones en Reddit por palabra clave
+- Análisis de sentimiento de los títulos de las publicaciones
+- Visualización de resultados en gráficos
+- Diseño responsivo con Streamlit
 
-<div style="display:flex;">
-  <img src="https://user-images.githubusercontent.com/27242399/208650139-8f6bd9bc-bf38-4a6e-886c-a2d93a350335.png" height="250">
-  <img src="https://user-images.githubusercontent.com/27242399/208647034-47fdbb66-29eb-4e6a-a6a3-311650d2cfc1.png" height="250">
-    <img src="https://user-images.githubusercontent.com/27242399/208649050-55c9d615-95a1-44c2-8262-87423c2e62ae.png" height="250">
+## Instalación
 
-</div>
+1. Clonar el repositorio
+   ```bash
+   git clone https://github.com/Albres20/GPT3-Dataset-Generator-V2.git
+   ```
+2. Instalar requerimientos
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Ejecutar la aplicación
+   ```bash
+   python -m streamlit run .\streamlit_app.py
+   ```
 
-## What is GPT-3?
+## Uso
 
-[GPT-3](https://en.wikipedia.org/wiki/GPT-3) is a large language generation model developed by [OpenAI](https://openai.com/) that can generate human-like text. It has a capacity of 175 billion parameters and is trained on a vast dataset of internet text. It can be used for tasks such as language translation, chatbot language generation, and content generation etc.
+1. Ejecutar la aplicación con `python -m streamlit run .\streamlit_app.py
+`
+2. Ingresar palabra clave de búsqueda en la barra lateral
+3. La aplicación buscará publicaciones recientes en Reddit
+4. Se analizará el sentimiento de los títulos (positivo, negativo, neutral)
+5. Los resultados se mostrarán en:
+    - Gráfico circular de distribución de sentimientos
+    - Tarjetas con preview de las publicaciones
+6. Permite interacción con los gráficos y scroll en las tarjetas
 
-## 🎈 What is Streamlit?
+## Tecnologías
 
-[Streamlit](https://streamlit.io) is an open-source Python library that allows users to create interactive, web-based data visualization and machine learning applications without the need for extensive web development knowledge.
-
-## 📖 Resources
-
-- OpenAI
-  - [OpenAI Playground](https://beta.openai.com/playground)
-  - [OpenAI Documentation](https://beta.openai.com/docs)    
+- Python
 - Streamlit
-  - [Documentation](https://docs.streamlit.io/)
-  - [Gallery](https://streamlit.io/gallery)
-  - [Cheat sheet](https://docs.streamlit.io/library/cheatsheet)
-  - [Book](https://www.amazon.com/dp/180056550X) (Getting Started with Streamlit for Data Science)
-  - Deploy your apps using [Streamlit Community Cloud](https://streamlit.io/cloud) in just a few clicks
+- pandas
+- Matplotlib
+- textblob (análisis de sentimiento)
+
+## Capturas
+
+![img.png](img.png)
+
+
+
