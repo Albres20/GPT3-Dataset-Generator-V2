@@ -20,7 +20,7 @@ from utils import (
     connect_to_postgres,
 )
 
-# ----------------------Page config--------------------------------------
+# ----------------------Page config-------------------------------------- GORDO DE MRDA
 
 st.set_page_config(page_title="GPT3 Dataset Generator", page_icon="🤖")
 
