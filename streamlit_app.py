@@ -6,7 +6,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 from plotly.express import colors
+import os
 
+
+CSV_DIR = 'csv_uploads'
 # ----------------------Page config--------------------------------------
 
 st.set_page_config(page_title="Analisis de sentimiento de Reddit", page_icon="📩", layout="wide")
@@ -41,9 +44,27 @@ with st.sidebar:
         "Ingrese su palabra de busqueda de reddit", type="default", placeholder="palabra clave"
     )
 
-    image_arrow = st.sidebar.image(
-        "Gifs/blue_grey_arrow.gif",
-    )
+    if st.sidebar.checkbox('Cargar archivo CSV externo'):
+        if not os.path.exists(CSV_DIR):
+            os.mkdir(CSV_DIR)
+
+        uploaded_file = st.file_uploader("Elige un archivo CSV", type=['csv'], accept_multiple_files=False)
+
+        if uploaded_file:
+
+            csv_path = os.path.join(CSV_DIR, uploaded_file.name)
+
+            if os.path.isfile(csv_path):
+                st.warning(f"El archivo {uploaded_file.name} ya existe y será sobreescrito")
+
+            # Guardar archivo
+            with open(csv_path, 'wb') as f:
+                f.write(uploaded_file.getbuffer())
+            st.success("Archivo guardado exitosamente!")
+
+image_arrow = st.sidebar.image(
+    "Gifs/blue_grey_arrow.gif",
+)
 
 col1, col2 = st.columns([0.6, 0.4])
 
@@ -124,6 +145,5 @@ with col2:
     fig.update_layout(width=500, height=300)
 
     col2.plotly_chart(fig)
-
 
 st.write("")
