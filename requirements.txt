@@ -1,14 +1,6 @@
 streamlit
 streamlit-pills
-openai
 matplotlib
 plotly
-
-streamlit-aggrid==0.2.2-2
-
-snowflake-connector-python==2.7.7
-snowflake-sqlalchemy
-sqlalchemy
-
-#For Postgres
-psycopg2-binary
+pandas
+numpy
