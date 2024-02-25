@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 from plotly.express import colors
 import os
+from extract import mainExtract
 
 
 CSV_DIR = 'csv_uploads'
@@ -50,6 +51,10 @@ with st.sidebar:
         placeholder="palabra clave"
     )
 
+    # Llamada a la función que procesa las palabras
+    resultado_procesado = mainExtract(input_search)
+    print(resultado_procesado)
+
     if st.sidebar.checkbox('Cargar archivo CSV externo'):
         if not os.path.exists(CSV_DIR):
             os.mkdir(CSV_DIR)
@@ -67,6 +72,8 @@ with st.sidebar:
             with open(csv_path, 'wb') as f:
                 f.write(uploaded_file.getbuffer())
             st.success("Archivo guardado exitosamente!")
+
+    
 
 image_arrow = st.sidebar.image(
     "Gifs/blue_grey_arrow.gif",

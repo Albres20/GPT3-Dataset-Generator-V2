@@ -6,6 +6,7 @@ def extraer_html(word):
     
     try:
         url_tweet = "https://www.reddit.com/search/?q="+word
+        print("here ----> "+url_tweet)
         response = requests.get(url_tweet)
         if response.status_code == 200:
             return response.text
@@ -39,19 +40,21 @@ def extraer_informacion(html):
                 srcs.append(None)
     return temas, subreddits, srcs  # Devolver también la lista de srcs
 
-#Ingresa la palabra
-word="asesinato"
-#  Extractor de HTML
-html_ejemplo = extraer_html(word)
+def mainExtract(words):
+    word="asesinato"
+    #  Extractor de HTML
+    html_ejemplo = extraer_html(word)
 
-# Extraer información del HTML de ejemplo
-temas, subreddits, srcs = extraer_informacion(html_ejemplo)
+    
+    # Extraer información del HTML de ejemplo
+    temas, subreddits, srcs = extraer_informacion(html_ejemplo)
 
-# Creando datframe
-df = pd.DataFrame({'Subreddit': subreddits, 'Tema': temas, 'Src': srcs})
+    # Creando datframe
+    df = pd.DataFrame({'Subreddit': subreddits, 'Tema': temas, 'Src': srcs})
 
-# Muestreo de dataframe
-print(df)
+    # Muestreo de dataframe
+    print(df)
 
-# Generar csv
-df.to_csv('datos.csv', index=False)
+    # Generar csv
+    df.to_csv('datos.csv', index=False)
+    return df
