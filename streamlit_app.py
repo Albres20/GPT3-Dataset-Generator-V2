@@ -92,17 +92,22 @@ col1, col2 = st.columns([0.6, 0.4])
 with col1:
     st.header("Resultados")
 
-    # Columna 1 con tarjetas scrollables
-    for i in range(st.session_state["num_resultados"]):
+    # Mostrar los resultados reales del DataFrame
+    for i in range(len(resultado_procesado)):  # Recorremos las filas del DataFrame
+        usuario = resultado_procesado.iloc[i]['Subreddit']  # Obtener el usuario de la fila
+        contenido = resultado_procesado.iloc[i]['Tema']  # Obtener el contenido de la fila
+        imagen = resultado_procesado.iloc[i]['Src']  # Obtener la imagen de la fila
+
+        # Mostrar la tarjeta con la información del usuario, contenido e imagen
         st.markdown(f"""
         <div class="card">
           <div class="user-info">
-            <img src="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_reddit-512.png" class="img-fluid rounded-circle" width="40">
-            <h6 class="card-title">Usuario {i}</h6>
+            <img src="{imagen}" class="img-fluid rounded-circle" width="40">
+            <h6 class="card-title">Usuario: {usuario}</h6>
           </div>
           <div>
             <p class="card-text">
-              Preview del contenido aquí
+              {contenido}
             </p>
           </div>
         </div>

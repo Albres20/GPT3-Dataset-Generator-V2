@@ -40,8 +40,7 @@ def extraer_informacion(html):
                 srcs.append(None)
     return temas, subreddits, srcs  # Devolver también la lista de srcs
 
-def mainExtract(words):
-    word="asesinato"
+def mainExtract(word):
     #  Extractor de HTML
     html_ejemplo = extraer_html(word)
 
